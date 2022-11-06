@@ -1,0 +1,96 @@
+@import url(https://fonts.google.com/specimen/Aclonica?query=acl);
+
+button.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rectangle{
+    position: relative;
+	width: 98%;
+    height: auto;
+    object-fit:fill;
+    margin-left: 1%;
+    padding: 8px 8px 8px 8px;
+    background: #b02020;
+    border-color:#000000;
+    border-width:1px;
+    border-style:solid;
+}
+
+.priceButton {
+    margin-left: 5%;
+    width: 10%; height: 30%;
+    object-fit: contain;
+    background: #d9534f;
+    border-radius: 3px 3px 3px 3px;
+    padding: 8px 8px 8px 8px;
+}
+
+
+.priceButtonText{
+    color: #ffffff;
+    font-family: "Helvetica";
+    font-weight: 700;
+    width: 100%; height: 100%;
+    object-fit: contain;
+}
+
+.mainButtonText{
+    color: #ffffff;
+    font-family: "Helevtica";
+    font-weight: 700;
+    position: relative;
+    font-size: 3vh;
+}
+
+.priceText{
+    color:#ffffff;
+    font-family: "Audiowide";
+    font-weight:400;
+    font-size: 2vw;
+    width: 5%; height: 5%;
+}
+
+.imageFeatured {
+    width: 100%; height: 100%;
+    object-fit:contain;
+}
+
+.textHeaderBanner{
+    white-space: nowrap;
+    color: #ffffff;
+    font-family: "Aclonica";
+    font-weight: bold;
+    font-size: 2.5vw;
+    text-align: center;
+    width: 30%; height: 4%;
+    object-fit: contain;
+    margin-top:3%;
+    margin-bottom: 15%;
+}
+
+.small_div{
+    display:flex;
+    justify-content: center;
+}
+
+.itemDetailsText{
+    white-space: normal;
+    color: #ffffff;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size:0.85vw;
+    text-align: center;
+    width: 70%; height: 10%;
+    object-fit: contain;
+}
+
+.h-10 {
+    height: 10%;
+}
+
+.h-30{
+    height: 30%;
+}
