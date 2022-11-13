@@ -26,3 +26,7 @@ app.get('/home', (req,res) => {
 app.get('/login', (req,res) => {
     res.render('login', {title: 'Login - Sun Devil Pizza'});
 })
+
+app.get('/startOrder', (req, res) => {
+    res.render('startOrder', {title: 'Start Order - Sun Devil Pizza'});
+})

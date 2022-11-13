@@ -1,0 +1,123 @@
+.orderContainer {
+    text-align: center;
+    position: relative;
+    display: flex;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.startOrderRectangle {
+	background-image: url('pizzaImg.png');
+	background-repeat: repeat;
+    width: 100%;
+    text-decoration-color: white;
+    padding: 1rem;
+    background-color: red;
+    color: white;
+  }
+
+.centerContainer {
+	position: relative;
+	display:flex;
+	flex-direction: column;
+}
+
+.startOrderCircle {
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  position:relative;
+  margin-bottom: 0;
+	width: 200px;
+	height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+	background: #ffffff;
+	border-color: #000000;
+	border-width: 3px;
+	border-style: solid;
+}
+
+.startOrderImage {
+    position: relative;
+	width: 164px;
+	height: 164px;
+}
+
+.startOrderText {
+    position: relative;
+    margin-top: auto;
+    font-size: 2rem;
+    height:50px;
+    font-weight: 600;
+}
+
+.btn {
+  background: black;
+  color: white;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+	border-color: rgb(255, 255, 255);
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.container {
+  position: relative;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	top:40px;
+  }
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: relative;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  /* svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  } */
+  
+  .btn:hover {
+    transition: 0.5s ease-in-out;
+    border-color: rgb(0, 0, 0);
+    background: #4F95DA;
+  }
+  
+  /* .btn:hover svg {
+    stroke-dashoffset: -480;
+  } */
+  
+  .btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  @media (max-width: 768px) {
+	body {
+        padding: 2rem 0;
+    }
+
+	.orderContainer {
+		width: 300px;
+        padding: 2rem;
+	}
+}
