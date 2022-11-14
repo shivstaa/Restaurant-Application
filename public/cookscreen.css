@@ -1,0 +1,67 @@
+.incomingOrdersText {
+	width: 33%;
+	height: 36px;
+	color: #ffffff;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 20px;
+	text-align: left;
+	float: left;
+}
+.dateTimeOrderPlaced {
+	width: 33%;
+	height: 36px;
+	color: #ffffff;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 20px;
+	text-align: center;
+	float:left;
+}
+
+.statusText {
+	width: 33%;
+	height: 36px;
+	color: #ffffff;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 20px;
+	text-align: left;
+	float:right
+}
+
+
+
+.rectangle-2 {
+	width: 32%;
+	height: 176px;
+	color: #ffffff;
+	font-family: "Helvetica";
+	padding: 8px 8px 8px 8px;
+	box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
+	background: #1c1c21;
+	border-radius: 2px 2px 0px 0px;
+	float: left;
+}
+.rectangle-3 {
+	width: 31%;
+	height: 176px;
+	color: #ffffff;
+	font-family: "Helvetica";
+	padding: 8px 8px 8px 8px;
+	box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
+	background: #1c1c21;
+	border-radius: 2px 2px 0px 0px;
+	float:left;
+}
+.rectangle-4 {
+	width: 30%;
+	height: 176px;
+	color: #7bf5d9;
+	font-family: "Helvetica";
+	padding: 8px 8px 8px 8px;
+	box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
+	background: #1c1c21;
+	border-radius: 2px 2px 0px 0px;
+	float:left;
+}

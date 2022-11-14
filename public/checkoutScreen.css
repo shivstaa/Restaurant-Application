@@ -1,0 +1,148 @@
+.orderBox * {
+    color: white;
+}
+
+.inside {
+    color: white;
+    background: rgb(31, 31, 31);
+    border-color: white;
+}
+
+.textBox {
+    width: 263px;
+    height: 49px;
+    padding: 4px 8px 4px 8px;
+    color: #c0c0c0;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.orderBox {
+    position: relative;
+    /*margin-top: 30%;*/
+    height: 400px;
+    padding: 8px 8px 8px 8px;
+    background: rgb(31, 31, 31);
+    color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.mainOrderText {
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 3vh;
+    text-align: left;
+	flex: 50%
+}
+
+.subOrderText {
+    text-indent: 20%;
+    font-family: "Helvetica";
+    font-weight: 205;
+    font-size: 2vh;
+    text-align: left;
+	flex: 50%
+}
+
+.priceText {
+    position: static;
+    text-align: right;
+    float: right;
+    justify-content: space-between;
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 26px;
+    text-align: left;
+	flex: 1;
+}
+.placeOrderBox {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    padding: 8px 8px 8px 8px;
+    background: #ffffff;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.row {
+    display: flex;
+	flex: 1;
+	margin-top: 0%;
+	margin-bottom: 0;
+}
+.rowStack{
+	display: flex;
+	margin-top: 0%;
+	margin-bottom: -40px;
+}
+.col{
+    flex: 50%;
+}
+.container{
+	flex: 50%;
+}
+.finalContainer{
+	flex: 50%;
+	margin-bottom: 10%;
+}
+.colDis{
+	display: flex;
+}
+.placeOrderBox {
+    position: relative;
+    margin-left: 25%;
+    top: 100px;
+    width: 200px;
+    height: 75px;
+    padding: 8px 8px 8px 8px;
+    background: maroon;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+	flex: 50%;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeOrderBox a {
+    text-decoration: none;
+}
+
+.paragraph-19 {
+    color: white;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 3vh;
+    line-height: 1.3;
+    text-align: center;
+	flex: 2;
+	margin-top: -0%;
+    align-items: center;
+    justify-content: center;
+}
+.asuTrident {
+    height: 170%;
+	flex: 0.1;
+    transform: rotate(-90deg);
+	margin-top: -15px;
+	margin-right: 6%;
+}

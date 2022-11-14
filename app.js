@@ -34,3 +34,15 @@ app.get('/startOrder', (req, res) => {
 app.get('/menu', (req, res) => {
     res.render('menu', {title: 'Menu - Sun Devil Pizza'});
 })
+
+app.get('/checkOut', (req, res) => {
+    res.render('checkOut', {title: 'Checkout - Sun Devil Pizza'});
+})
+
+// app.get('/complete', (req, res) => {
+//     res.render();
+// })
+
+app.get('/manage', (req, res) => {
+    res.render('manage', {title: 'Manage Orders - Sun Devil Pizza'});
+})

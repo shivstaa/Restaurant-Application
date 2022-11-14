@@ -1,0 +1,79 @@
+<html lang="en">
+    <%- include("./partials/header.ejs") %> 
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkoutScreen.css">
+    <title>Review Order - Sun Devil Pizza</title>
+</head>
+<body>
+    <!--main screen-->
+    <div class="row">
+        <!--left column-->
+        <div class="col inside" >
+            <h2>First Name:</h2>
+            <textarea class="textBox">Type Here</textarea>
+            <h2>Last Name:</h2>
+            <textarea class="textBox">Type Here</textarea>
+            <h2>Phone Number:</h2> 
+            <textarea class="textBox">Type Here</textarea>
+            <h2>ASU ID:</h2>    
+            <textarea class="textBox">Type Here</textarea>
+            <h2>ASU Email Address</h2>
+            <textarea class="textBox">Type Here</textarea>
+        </div>
+        <!-- right column -->
+        <div class="col">
+            <!--order box-->
+            <div class="orderBox">
+                <!--Order header-->
+                <div class="row">
+                    <h2 class="mainOrderText">Order #XXXX</h2>
+                </div>
+                <!--First order-->
+                <div class="row">
+                    <div class="container">
+                        <h2 class="mainOrderText">Thick Crust Pizza</h2>
+                        <p class="priceText">+$0.50</p>
+                        <p class="subOrderText">-pepperoni</p>
+                        <p class="priceText" style="position: relative; left: 80px;">+$1.00</p>
+                        <p class="subOrderText">-bacon</p>
+                    </div>
+                        <h2 class="priceText">$9.50</h2>
+                </div>
+                <!--Second order-->
+                <div class="row">
+                        <h2 class="mainOrderText">1x breadstick</h2> 
+                        <h2 class="priceText">$3.50</h2>
+                </div>
+                <!-- price calc box-->
+                <div class="finalContainer">
+                    <div class="rowStack">
+                        <h2 class="mainOrderText">Subtotal</h2> <h2 class="priceText">$14.50</h2>
+                    </div>
+                    <div class="rowStack" style=" position: relative; top: 50px">
+                        <h2 class="mainOrderText">Taxes</h2> <h2 class="priceText">$1.23</h2>
+                    </div>
+                    <div class="rowStack" style=" position: relative; top: 100px">
+                        <h2 class="mainOrderText" >Order Total</h2> <h2 class="priceText">$15.73</h2>
+                    </div>
+                </div>
+            </div>
+                <!--place order button-->
+           <!--<a href=""> for linking to other html-->
+                <div class="placeOrderBox">
+                    <form>
+                        <a href="/">
+                            <p class="paragraph-19" style="position: relative; top: 20px;">Place order</p>
+                        </a>
+                    </form> 
+
+                </div>
+           <!-- </a> --> 
+        </div>
+    </div>
+
+</body>
+</html>
