@@ -1,0 +1,944 @@
+<html lang="en">
+    <%- include("./partials/header.ejs") %> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css"/>
+    <title>Menu - Sun Devil Pizza</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main">
+            
+            <div class="container-1">
+                <h1>Start Order</h1>
+                <p><span>Build your ideal pizza (click to add):</span></p>
+            </div>
+
+            <div class="container0" style="position: relative; top: 50px;">
+                <div class="box">
+                    <h1>Step 1: Crust</h1>
+                </div>
+            </div>
+
+            <div class="container1" style="position:relative; top: 100px;">
+                <!--thin crust-->
+                <li class="item-card" id="thinCrust" style="cursor: pointer; position: relative; right: 25px;" value ="0.00" onclick="this.classList.toggle('active'); getThinClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var thinClicked = 0;
+                        function getThinClicked(id, value) {
+                            thinClicked++;
+                            var thinClick = document.getElementById("thinCrust");
+                            if(thinClicked % 2 != 0) {
+                                thinClick.setAttribute("value", "8.00");
+                            }
+                            else {
+                                thinClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="thin.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>The standard crust at Sun Devil Pizza. Hand tossed and cooked to a perfect brown texture.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Thin Crust</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div  class="value">$8.00</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+                <!--thick crust-->
+                <li class="item-card" id="thickCrust" style="cursor: pointer; position: relative; left: 25px;" value="0.00" onclick="this.classList.toggle('active'); getThickClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var thickClicked = 0;
+                        function getThickClicked(id, value) {
+                            thickClicked++;
+                            var thinClick = document.getElementById("thickCrust");
+                            if(thickClicked % 2 != 0) {
+                                thinClick.setAttribute("value", "9.50");
+                            }
+                            else {
+                                thinClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="thick.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p> A flavorful, 2-inch crust dipped in garlic. Hand tossed and cooked to a perfect brown texture.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Thick Crust</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$9.50</div>
+                            
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+            </div>
+            
+            <div class="container2" style="position: relative; top: 150px;">
+                <div class="box">
+                    <h1>Step 2: Toppings</h1>
+                </div>
+            </div>
+
+            <div class="container3" style="position: relative; top: 200px;">
+                <!--Pepperoni-->
+                <li class="item-card" id="pepperoni" style="cursor: pointer; position: relative; right: 75px;" value="0.00" onclick="this.classList.toggle('active'); getPepperoniClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var pepperoniClicked = 0;
+                        function getPepperoniClicked(id, value) {
+                            pepperoniClicked++;
+                            var pepperoniClick = document.getElementById("pepperoni");
+                            if(pepperoniClicked % 2 != 0) {
+                                pepperoniClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                pepperoniClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="pepperoni.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>A classic topping for pizzas. Is there much more to say?</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Pepperoni</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+                <!--Beef-->
+                <li class="item-card" id="beef" style="cursor: pointer; position: relative; right: 25px;" value="0.00" onclick="this.classList.toggle('active'); getBeefClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var beefClicked = 0;
+                        function getBeefClicked(id, value) {
+                            beefClicked++;
+                            var beefClick = document.getElementById("beef");
+                            if(beefClicked % 2 != 0) {
+                                beefClick.setAttribute("value", "1.50");
+                            }
+                            else {
+                                beefClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="beef.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>A well done steak cut into half-inch pieces, topped with salt to bring out the most flavor.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Beef</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$1.50</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+                <!--Bacon-->
+                <li class="item-card" id="bacon" style="cursor: pointer; position: relative; left: 25px;" value="0.00" onclick="this.classList.toggle('active'); getBaconClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var baconClicked = 0;
+                        function getBaconClicked(id, value) {
+                            baconClicked++;
+                            var baconClick = document.getElementById("bacon");
+                            if(baconClicked % 2 != 0) {
+                                baconClick.setAttribute("value", "1.00");
+                            }
+                            else {
+                                baconClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="bacon.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>An odd choice, but popular. Strips cooked to a crispy texture. Get with the times, right?</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Bacon</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but"><div class="value">$1.00</div></div>
+                    </div>
+                    <!---->
+                </li>
+
+                <!--Sausage-->
+                <li class="item-card" id="sausage" style="cursor: pointer; position: relative; left: 75px;" value="0.00" onclick="this.classList.toggle('active'); getSausageClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                         var sausageClicked = 0;
+                        function getSausageClicked(id, value) {
+                            sausageClicked++;
+                            var sausageClick = document.getElementById("sausage");
+                            if(sausageClicked % 2 != 0) {
+                                sausageClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                sausageClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="sausage.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>Poultry that is in chunks as opposed to diced like pepperonis.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Sausage</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+            </div>
+
+            <div class="container4" style="position:relative; top: 250px;">
+                <!--Extra Cheese-->
+                <li class="item-card" id="cheese" style="cursor: pointer; position: relative; right: 75px;" value="0.00" onclick="this.classList.toggle('active'); getCheeseClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var cheeseClicked = 0;
+                        function getCheeseClicked(id, value) {
+                            cheeseClicked++;
+                            var cheeseClick = document.getElementById("cheese");
+                            if(cheeseClicked % 2 != 0) {
+                                cheeseClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                cheeseClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="cheese.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>Like your pies with extra cheese? We can throw some more on there!</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Extra Cheese</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>                      
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+                <!--Olive-->
+                <li class="item-card" id="olive" style="cursor: pointer; position: relative; right: 25px;" value="0.00" onclick="this.classList.toggle('active'); getOliveClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var oliveClicked = 0;
+                        function getOliveClicked(id, value) {
+                            oliveClicked++;
+                            var oliveClick = document.getElementById("olive");
+                            if(oliveClicked % 2 != 0) {
+                                oliveClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                oliveClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="olive.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>Some olives always bring another layer of flavor! A must have on all pizzas.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Olives</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+                <!--Onion-->
+                <li class="item-card" id="onion" style="cursor: pointer; position: relative; left: 25px;" value="0.00" onclick="this.classList.toggle('active'); getOnionClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var onionClicked = 0;
+                        function getOnionClicked(id, value) {
+                            onionClicked++;
+                            var onionClick = document.getElementById("onion");
+                            if(onionClicked % 2 != 0) {
+                                onionClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                onionClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="onion.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>If our prices aren't making you cry, these diced and slightly cooked onions will!</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Onions</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>                   
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+
+                <!--Spinich-->
+                <li class="item-card" id="spinich" style="cursor: pointer; position: relative; left: 75px;" value="0.00" onclick="this.classList.toggle('active'); getSpinichClicked(this.id, this.value);" cursor: pointer;>
+                    <script>
+                        var spinichClicked = 0;
+                        function getSpinichClicked(id, value) {
+                            spinichClicked++;
+                            var spinichClick = document.getElementById("spinich");
+                            if(spinichClicked % 2 != 0) {
+                                spinichClick.setAttribute("value", "0.50");
+                            }
+                            else {
+                                spinichClick.setAttribute("value", "0.00");
+                            }
+                            calculateCost();
+                        }
+                    </script>
+                    <div class="card-img">
+                        <div class="flip-card-inner" >
+            
+                            <div class="flip-card-front">
+                                <img src="spinich.png" style="width:135px; height:135px;">
+                            </div>
+            
+                            <div class="flip-card-back">
+                                <p>Diced and sliced spinich sprinkled all over your pie.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="card-text">
+                        <hr style="color:grey;">
+                        <h2>Spinich</h2>
+                    </div>
+                    <!---->
+                    <div class="card-buttons">
+                        <div class="but">
+                            <div class="value">$0.50</div>
+                        </div>
+                    </div>
+                    <!---->
+                </li>
+            </div>
+
+            <div class="container5" style="position:relative; top: 300px;">
+                <div class="box">
+                    <h1>Sides</h1>
+                </div>
+            </div>
+
+            <div class="container6" style="position: relative; top: 350px">
+                <h1 style="position: relative; right: 150px;">Drinks - $2.00 each</h1>
+                <h1 style="position: relative; left: 120px;">Sides</h1>
+            </div>
+
+            <div class="container7" style="position: relative; top: 200px">
+                <div class="container10" style="position: relative;">
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected">Drinks</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li class="active">
+                                --Select Option--
+                            </li>
+                            <!--Fanta -->
+                            <li style="height: 50px;">
+                                <img src="Fanta.png" style="width:28px; height: 25px;">
+                                <span  style="position: relative; left: 10px; top:-5px">Fanta</span>
+                                <div class="containButton">
+                                    <div class="counter">
+                                        <span class="down" onClick='fantaDecreaseCount(event, this)'>-</span>
+                                        <input id="fanta" class="circle" type="text" value = "0">
+                                        <span class="up" onClick='fantaIncreaseCount(event, this)'>+</span>
+                                    </div>
+                            
+                                    <script type="text/javascript">
+                                    var getFanta = document.getElementById("fanta");
+                                    function fantaIncreaseCount(a,b) {
+                                        var input = b.previousElementSibling;
+                                        var value = parseInt(input.value, 10);
+                                        value = isNaN(value) ? 0: value;
+                                        value++;
+                                        input.value = value;
+                                        getFanta.setAttribute("value", input.value);
+                                        calculateCost();
+                                    }
+                            
+                                    function fantaDecreaseCount(a,b) {
+                                        var input = b.nextElementSibling;
+                                        var value = parseInt(input.value, 10);
+                                        if(value > 0) {
+                                            value = isNaN(value) ? 0: value;
+                                            value--;
+                                            input.value = value;
+                                        }
+                                        getFanta.setAttribute("value", input.value);
+                                        calculateCost();
+                                    }
+                                    </script>
+                                </div>
+                            </li>
+                            <!--Sprite-->
+                            <li style="height:50px;">
+                                <img src="Sprite.png" style="width:28px; height: 25px;">
+                                <span style="position: relative; left: 10px; top:-5px;">Sprite</span>
+                                <div class="containButton">
+                                    <div class="counter">
+                                        <span class="down" onClick='spriteDecreaseCount(event, this)'>-</span>
+                                        <input id="sprite" class="circle" type="text" value = "0">
+                                        <span class="up" onClick='spriteIncreaseCount(event, this)'>+</span>
+                                    </div>
+                            
+                                    <script type="text/javascript">
+                                        var getSpriteCount = document.getElementById("sprite");
+
+                                        function spriteIncreaseCount(a,b) {
+                                            var input = b.previousElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            value = isNaN(value) ? 0: value;
+                                            value++;
+                                            input.value = value;
+                                            getSpriteCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                            
+                                        function spriteDecreaseCount(a,b) {
+                                            var input = b.nextElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            if(value > 0) {
+                                                value = isNaN(value) ? 0: value;
+                                                value--;
+                                                input.value = value;
+                                                getSpriteCount.setAttribute("value", input.value);
+                                                calculateCost();
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                            </li>
+                            <!--Coca Cola-->
+                            <li style="height: 50px;">
+                                <img src="Coca-Cola.png" style="width:28px; height: 25px;">
+                                <span style="position: relative; left: 10px; top:-5px;">Coca Cola</span>
+                                <div class="containButton">
+                                    <div class="counter">
+                                        <span class="down" onClick='cokeDecreaseCount(event, this)'>-</span>
+                                        <input id="coke" class="circle" type="text" value = "0">
+                                        <span class="up" onClick='cokeIncreaseCount(event, this)'>+</span>
+                                    </div>
+                            
+                                    <script type="text/javascript">
+                                        var getCokeCount = document.getElementById("coke");
+
+                                        function cokeIncreaseCount(a,b) {
+                                            var input = b.previousElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            value = isNaN(value) ? 0: value;
+                                            value++;
+                                            input.value = value;
+                                            getCokeCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                            
+                                        function cokeDecreaseCount(a,b) {
+                                            var input = b.nextElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            if(value > 0) {
+                                                value = isNaN(value) ? 0: value;
+                                                value--;
+                                                input.value = value;
+                                                getCokeCount.setAttribute("value", input.value);
+                                                calculateCost();
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                            </li>
+                            <!--Diet Coke-->
+                            <li style="height: 50px;">
+                                <img src="DietCoke.png" style="width:28px; height: 25px;">
+                                <span style="position: relative; left: 10px; top:-5px;">Diet Coke</span>
+                                <div class="containButton">
+                                    <div class="counter">
+                                        <span class="down" onClick='dietCokeDecreaseCount(event, this)'>-</span>
+                                        <input id="dietcoke" class="circle" type="text" value = "0">
+                                        <span class="up" onClick='dietCokeIncreaseCount(event, this)'>+</span>
+                                    </div>
+                            
+                                    <script type="text/javascript">
+                                        getDietCokeCount = document.getElementById("dietcoke");
+                                        function dietCokeIncreaseCount(a,b) {
+                                            var input = b.previousElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            value = isNaN(value) ? 0: value;
+                                            value++;
+                                            input.value = value;
+                                            getDietCokeCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                            
+                                        function dietCokeDecreaseCount(a,b) {
+                                            var input = b.nextElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            if(value > 0) {
+                                                value = isNaN(value) ? 0: value;
+                                                value--;
+                                                input.value = value;
+                                            }
+                                            getDietCokeCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                                    </script>
+                                </div>
+                            </li>
+                            <!--Mountain Dew-->
+                            <li style="height: 50px;">
+                                <img src="MountainDew.png" style="width:28px; height: 25px;">
+                                <span style="position: relative; left: 10px; top:-5px;">Mountain Dew</span>
+                                <div class="containButton">
+                                    <div class="counter">
+                                        <span class="down" onClick='mdDecreaseCount(event, this)'>-</span>
+                                        <input id="dew" class="circle" type="text" value = "0">
+                                        <span class="up" onClick='mdIncreaseCount(event, this)'>+</span>
+                                    </div>
+                            
+                                    <script type="text/javascript">
+                                        var getDewCount = document.getElementById("dew");
+                                        function mdIncreaseCount(a,b) {
+                                            var input = b.previousElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            value = isNaN(value) ? 0: value;
+                                            value++;
+                                            input.value = value;
+                                            getDewCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                            
+                                        function mdDecreaseCount(a,b) {
+                                            var input = b.nextElementSibling;
+                                            var value = parseInt(input.value, 10);
+                                            if(value > 0) {
+                                                value = isNaN(value) ? 0: value;
+                                                value--;
+                                                input.value = value;
+                                            }
+                                            getDewCount.setAttribute("value", input.value);
+                                            calculateCost();
+                                        }
+                                    </script>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    const dropdowns = document.querySelectorAll('.dropdown');
+                    dropdowns.forEach(dropdown => {
+                        const select = dropdown.querySelector('.select');
+                        const caret = dropdown.querySelector('.caret');
+                        const menu = dropdown.querySelector('.menu');
+                        const options = dropdown.querySelectorAll('.menu li');
+                        const selected = dropdown.querySelector('.selected');
+                
+                        //add a click event to the select element
+                        select.addEventListener('click', () => {
+                            //add the clicked select styles to the select element
+                            select.classList.toggle('select-clicked');
+                            
+                            //add the rotate styles to the caret element
+                            caret.classList.toggle('caret-rotate');
+                            
+                            //add the open styles to the menu element
+                            menu.classList.toggle('menu-open');
+                        });
+                
+                        options.forEach(option =>  {
+                            option.addEventListener('click', () => {
+                                selected.innerText = option.innerText.replace("-","").replace("+","").trim();
+                                //add clicked select styles to select element
+                                select.classList.remove('select-clicked');
+                                //add rotate styles to the caret element
+                                caret.classList.remove('caret-rotate');
+                                //add open styles to the menu element
+                                //menu.classList.remove('menu-open');
+                                options.forEach(option =>  {
+                                    option.classList.remove('active');
+                                    
+                                });
+                
+                                option.classList.add('active');
+                
+                            });
+                        });
+                    });
+                </script>
+
+                <div class="container11" style="position: relative; left: 100px; top: 150px">
+                    <div class = "multipleSelectContainer">
+                        <div class="multipleSelect">
+                            <h2>Sides</h2>
+                            <ul>
+                                <!--Breadsticks-->
+                                <li>
+                                    <label>
+                                        <p>Breadsticks
+                                            <span style="color:rgb(229, 120, 37);">
+                                                $3.50
+                                            </span>
+                                        </p>
+                                        <div class="containButton; position: relative; top: 0px;">
+                                            <div class="counter">
+                                                <span class="down" onClick='breadStickDecreaseCount(event, this)'>-</span>
+                                                <input id="breadstickCount" class="circle" type="text" value = "0">
+                                                <span class="up" onClick='breadStickIncreaseCount(event, this)'>+</span>
+                                            </div>
+                                    
+                                            <script type="text/javascript">
+                                            
+                                            var getBreadStickPrice = document.getElementById("breadstickCount");
+
+                                            function breadStickIncreaseCount(a,b) {
+                                                var input = b.previousElementSibling;
+                                                var value = parseInt(input.value, 10);
+                                                value = isNaN(value) ? 0: value;
+                                                value++;
+                                                input.value = value;
+                                                getBreadStickPrice.setAttribute("value", input.value);
+                                                calculateCost();
+                                            }
+                                    
+                                            function breadStickDecreaseCount(a,b) {
+                                                var input = b.nextElementSibling;
+                                                var value = parseInt(input.value, 10);
+                                                if(value > 0) {
+                                                    value = isNaN(value) ? 0: value;
+                                                    value--;
+                                                    input.value = value;
+                                                }
+                                                getBreadStickPrice.setAttribute("value", input.value);
+                                                calculateCost();
+                                            }
+                                            </script>
+                                        </div>
+
+                                    </label>
+                                </li>
+                                <!--Cheesesticks-->
+                                <li>
+                                    <label>
+                                        <p>
+                                            Cheesesticks
+                                            <span style="color:rgb(229, 120, 37);">
+                                                $3.50
+                                            </span>
+                                        </p>
+
+                                        <div class="containButton; position: relative; top: 0px;">
+                                            <div class="counter">
+                                                <span class="down" onClick='cheeseStickDecreaseCount(event, this)'>-</span>
+                                                <input id="cheesesticksCount" class="circle" type="text" value = "0">
+                                                <span class="up" onClick='cheeseStickIncreaseCount(event, this)'>+</span>
+                                            </div>
+                                    
+                                            <script type="text/javascript">
+                                            
+                                            var getCheeseStickPrice = document.getElementById("cheesesticksCount");
+
+                                                function cheeseStickIncreaseCount(a,b) {
+                                                    var input = b.previousElementSibling;
+                                                    var value = parseInt(input.value, 10);
+                                                    value = isNaN(value) ? 0: value;
+                                                    value++;
+                                                    input.value = value;
+                                                    getCheeseStickPrice.setAttribute("value", input.value);
+                                                    calculateCost();
+                                                }
+                                    
+                                                function cheeseStickDecreaseCount(a,b) {
+                                                    var input = b.nextElementSibling;
+                                                    var value = parseInt(input.value, 10);
+                                                    if(value > 0) {
+                                                        value = isNaN(value) ? 0: value;
+                                                        value--;
+                                                        input.value = value;
+                                                    }
+                                                    getCheeseStickPrice.setAttribute("value", input.value);
+                                                    calculateCost();
+                                                }
+                                            </script>
+                                        </div>
+                                    </label>
+                                </li>
+                                <!--Cookies-->
+                                <li>
+                                    <label>
+                                        <p>Cookies
+                                            <span style="color:rgb(229, 120, 37);">
+                                                $1.50
+                                            </span>
+                                        </p>
+                                        <div class="containButton; position: relative; top: 0px;">
+                                            <div class="counter">
+                                                <span class="down" onClick='cookieDecreaseCount(event, this)'>-</span>
+                                                <input id="cookieCount" class="circle" type="text" value = "0">
+                                                <span class="up" onClick='cookieIncreaseCount(event, this)'>+</span>
+                                            </div>
+                                    
+                                            <script type="text/javascript">
+                                                
+                                                var getCookiePrice = document.getElementById("cookieCount");
+
+                                                function cookieIncreaseCount(a,b) {
+                                                    var input = b.previousElementSibling;
+                                                    var value = parseInt(input.value, 10);
+                                                    cookieVal = isNaN(value) ? 0: value;
+                                                    value++;
+                                                    input.value = value;
+                                                    getCookiePrice.setAttribute("value", value);
+                                                    calculateCost();
+                                                }
+                                    
+                                                function cookieDecreaseCount(a,b) {
+                                                    var input = b.nextElementSibling;
+                                                    var value = parseInt(input.value, 10);
+                                                    if(value > 0) {
+                                                        value = isNaN(value) ? 0: value;
+                                                        value--;
+                                                        input.value = value;
+                                                    }
+                                                    getCookiePrice.setAttribute("value", value);
+                                                    calculateCost();
+                                                }
+                                            </script>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h2>Cost</h2>
+            <div class="prices">
+                <p>Price:</p>
+                <div class="priceTotal">
+                    <script>
+                        var getThin =document.getElementById("thinCrust");
+                        var getThick = document.getElementById("thickCrust");
+                        var getPepperoni = document.getElementById("pepperoni");
+                        var getBeef = document.getElementById("beef");
+                        var getBacon = document.getElementById("bacon");
+                        var getSausage = document.getElementById("sausage");
+                        var getCheese = document.getElementById("cheese");
+                        var getOlives = document.getElementById("olive");
+                        var getOnions = document.getElementById("onion");
+                        var getSpinich = document.getElementById("spinich");
+
+                        var getFantaQ = document.getElementById("fanta");
+                        var getSpriteQ = document.getElementById("sprite");
+                        var getCokeQ = document.getElementById("coke");
+                        var getDietCokeQ = document.getElementById("dietcoke");
+                        var getDewQ = document.getElementById("dew");
+
+                        var getBreadstick = document.getElementById("breadstickCount");
+                        var getCheesestick = document.getElementById("cheesesticksCount");
+                        var getCookie = document.getElementById("cookieCount");
+
+                        var priceTotal = document.querySelector('.priceTotal');
+
+                        function calculateCost() {
+                            var thinPrice = parseFloat(getThin.getAttribute("value")); 
+                            var thickPrice = parseFloat(getThick.getAttribute("value"));
+                            var pepperoniPrice = parseFloat(getPepperoni.getAttribute("value"));
+                            var beefPrice = parseFloat(getBeef.getAttribute("value"));
+                            var baconPrice = parseFloat(getBacon.getAttribute("value"));
+                            var sausagePrice = parseFloat(getSausage.getAttribute("value"));
+                            var cheesePrice = parseFloat(getCheese.getAttribute("value"));
+                            var olivePrice = parseFloat(getOlives.getAttribute("value"));
+                            var onionPrice = parseFloat(getOnions.getAttribute("value"));
+                            var spinichPrice = parseFloat(getSpinich.getAttribute("value"));
+
+                            var fantaQuantity = parseInt(getFantaQ.getAttribute("value"));
+                            var spriteQuantity = parseInt(getSpriteQ.getAttribute("value"));
+                            var cokeQuantity = parseInt(getCokeQ.getAttribute("value"));
+                            var dietCokeQuantity = parseInt(getDietCokeQ.getAttribute("value"));
+                            var dewQuantity = parseInt(getDewQ.getAttribute("value"));
+                            
+
+                            var breadstickQuantity = parseInt(getBreadstick.getAttribute("value"));
+                            var cheesestickQuantity = parseInt(getCheesestick.getAttribute("value"));
+                            var cookieQuantity = parseInt(getCookie.getAttribute("value"));
+
+                            var pizzaCost = 0;
+                            var sodaCost = 0;
+                            var sidesCost = 0;
+
+                            var totalCost = 0;
+
+                            if(thinPrice != 0 && thickPrice != 0) {
+                                thinPrice = 0;
+                                getThin.setAttribute("value", "0");
+                            }
+                            if(thinPrice == 0 && thickPrice == 0) {}
+                            else {
+                                var pizzaCost = thinPrice + thickPrice + pepperoniPrice + beefPrice + baconPrice 
+                            + sausagePrice + cheesePrice + olivePrice +  onionPrice + spinichPrice;
+                            }
+
+                            sodaCost = (2 * (fantaQuantity + spriteQuantity + cokeQuantity + dietCokeQuantity + dewQuantity));
+
+                            sidesCost = ((3.5*breadstickQuantity) + (3.5*cheesestickQuantity) + (1.5*cookieQuantity));
+
+
+                            totalCost = pizzaCost + sodaCost + sidesCost;
+                            priceTotal.innerText = "$" + totalCost.toFixed(2);
+                        }
+                        calculateCost();
+                    </script>
+                </div>
+               
+            </div>
+            <div class="checkoutButton">
+                <a href="#" style="--clr:red"><span>Checkout</span><i></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

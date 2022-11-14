@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    background: rgb(35, 33, 33);
+}
+
+
+.container-1 {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: block;
+}
+
+.container-1 h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size:60px;
+    color: #fff;
+    background: rgb(166, 145, 30);
+    width: 100%;
+    margin-top: 0;
+}
+
+.container-1 p {
+    margin-left: 25px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.container0,
+.container2,
+.container5
+ {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    text-align: center;
+}
+
+.container1,
+.container3,
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.container6,
+.container7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container6 h1 {
+    color: white;
+    font-size: 36px;
+    /*Insert cool font style here*/
+}
+
+.item-card {
+    display: grid;
+    grid-template-columns: 170px;
+    grid-template-rows: 140px 60px 50px;
+    grid-template-areas: "image" "text" "buttons";
+    border-radius: 18px;
+    background: white;
+    text-align: center;
+    box-shadow:0 2px 1px rgba(0,0,0,0.09),0 4px 2px rgba(0,0,0,0.09),0 8px 4px rgba(0,0,0,0.09),0 16px 8px rgba(0,0,0,0.09),0 32px 16px rgba(0,0,0,0.09);
+}
+
+
+.item-card.active {
+    background: rgb(255, 242, 167);
+    cursor: pointer;
+}
+
+.card-img {
+    grid-area: image;
+    
+}
+
+.card-img:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+    font-size: 18px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.card-text {
+    grid-area: text;
+}
+
+.card-text h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-text h3 {
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+.card-buttons {
+    grid-area: buttons;
+    display: grid;
+    /*remove one '1fr' if we want 2 button*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* background: rgb(225, 225, 225); */
+    background: maroon;
+}
+
+.card-buttons .but {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+
+.card-buttons .type {
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.card-buttons .value {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.card-buttons .border {
+    border-left: 1px solid black;
+}
+
+.card-buttons .value sup {
+    font-size: 12px;
+}
+
+
+.box {
+    background: maroon;
+    width: 100%;
+    height: 120px;
+}
+
+.box h1 {
+    color: white;
+    font-size: 48px;
+}
+
+/*Drink Dropdown*/
+
+.container10 {
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dropdown {
+    min-width: 22em;
+    position: relative;
+    margin: 2em;
+} 
+
+.dropdown * { 
+    box-sizing: border-box;
+}
+
+.select {
+    background: #2a2f3b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/*Implemented in JS later*/
+.select-clicked {
+    border: 2px #26489a solid;
+    box-shadow: 0 0 0.8em #26489a;
+}
+
+.select:hover {
+    background: #323741;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+/*Rotate styles (implemented in JS)*/
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px #362a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);  
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.5em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+
+.menu li:hover {
+    background: #2a2d35;
+}
+
+/*Active styles (implemented in JS)*/
+.active {
+    background: #23242a;
+
+}
+
+/*Open styles (implemented in JS)*/
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+/*Quantity Button*/
+
+.containButton {
+    position: relative;
+    top: -30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.counter {
+    width: 100px;
+    border: solid #fff;
+    background: #23242a;
+    border-width: 1px;
+    border-radius: 25px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.counter input {
+    width: 30px;
+    border: 0;
+    outline: 0;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.circle {
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.down, .up {
+    color: #fff;
+}
+
+.down:hover,
+.up:hover {
+    color: yellow;
+}
+
+
+.multipleSelectContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+}
+
+.multipleSelectContainer *  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.multipleSelect {
+    position: relative;
+    background: #1C1C21;
+    width: 350px;
+}
+
+.multipleSelect h2 {
+    background: maroon;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.multipleSelect ul {
+    position: relative;
+    padding: 20px;
+}
+
+.multipleSelect ul li {
+    position: relative;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.multipleSelect ul li:last-child {
+    border-bottom: none;
+}
+
+.multipleSelect ul li label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.multipleSelect ul li label p {
+    color: #BFBFBF;
+    font-size: 20px;
+}
+
+.multipleSelect ul li label p span {
+    display: block;
+}
+
+.multipleSelect ul li:hover {
+    background: rgba(44, 43, 43, 0.5);
+}
+
+.main {
+    width: 70%;
+    height: 230vh;
+    background: rgb(39, 37, 37);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);  
+}
+
+.sidebar {
+    margin-right: 20px;
+    width: 25%;
+    height: 28vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 35%;
+
+    background: rgb(39, 37, 37);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); 
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    background-color: maroon;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 0px;
+}
+
+.prices {
+    margin-left: 20px;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+}
+
+.sidebar p {
+    color: #BFBFBF;
+    font-size: 28px;
+
+}
+
+.sidebar li {
+    list-style:hidden;
+    color: #BFBFBF;
+    font-size: 28px;
+}
+
+.checkoutButton * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkoutButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkoutButton a {
+    position: relative;
+    background: #BFBFBF;
+    color: #BFBFBF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.checkoutButton a:hover {
+    background: var(--clr);
+    color: var(--clr);
+    letter-spacing: 0.25em; 
+    box-shadow: 0 0 35px var(--clr);
+}
+
+.checkoutButton a:before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #27282c;
+}
+
+.checkoutButton a span {
+    position: relative;
+    z-index: 1;
+}
+
+.checkoutButton a i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.checkoutButton a i::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 20px;
+    height: 4px;
+    background: #27282c;
+    transform: translateX(-50%) skewX(325deg); 
+    transition: 0.5s;
+}
+
+.checkoutButton a:hover i::before {
+    width: 20px;
+    left: 20%;
+}
+
+.checkoutButton a i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 20px;
+    height: 4px;
+    background: #27282c;
+    transform: translateX(-50%) skewX(325deg); 
+    transition: 0.5s;
+}
+
+.checkoutButton a:hover i::after {
+    width: 20px;
+    left: 80%;
+}
+
+.priceTotal {
+    color: #BFBFBF;
+    justify-content: space-between;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+@media (max-width: 760px) {
+    body {
+        display:grid;
+    }
+}

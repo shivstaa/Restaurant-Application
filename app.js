@@ -30,3 +30,7 @@ app.get('/login', (req,res) => {
 app.get('/startOrder', (req, res) => {
     res.render('startOrder', {title: 'Start Order - Sun Devil Pizza'});
 })
+
+app.get('/menu', (req, res) => {
+    res.render('menu', {title: 'Menu - Sun Devil Pizza'});
+})
