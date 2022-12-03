@@ -1,4 +1,4 @@
-The following application uses NodeJS, Express, vanilla JavaScript, and HTML/CSS
+The following application uses NodeJS, Express, vanilla JavaScript, mongoDB, and HTML/CSS
 
 
 **NOTE: PLEASE USE VSCODE OR ANOTHER EDITOR THAT HAS A TERMINAL**
