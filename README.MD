@@ -8,3 +8,6 @@ To get all packages, run the following command in the terminal:
 **Note: app.js is the main file**
 To run the application, run the following command in the terminal:
         nodemon app
+
+To see application, type the following in your browser (preferably with chromium, but will work with other browsers):
+        localhost:3000

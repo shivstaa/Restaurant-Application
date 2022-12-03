@@ -11,69 +11,230 @@
 <body>
     <!--main screen-->
     <div class="row">
+
         <!--left column-->
-        <div class="col inside" >
-            <h2>First Name:</h2>
-            <textarea class="textBox">Type Here</textarea>
-            <h2>Last Name:</h2>
-            <textarea class="textBox">Type Here</textarea>
-            <h2>Phone Number:</h2> 
-            <textarea class="textBox">Type Here</textarea>
-            <h2>ASU ID:</h2>    
-            <textarea class="textBox">Type Here</textarea>
-            <h2>ASU Email Address</h2>
-            <textarea class="textBox">Type Here</textarea>
-        </div>
-        <!-- right column -->
-        <div class="col">
+        <div class="sidebar">
             <!--order box-->
             <div class="orderBox">
                 <!--Order header-->
                 <div class="row">
-                    <h2 class="mainOrderText">Order #XXXX</h2>
+                    <h2 class="mainOrderText">Your Order:</h2>
                 </div>
-                <!--First order-->
-                <div class="row">
+               
+                 <div class="row">
                     <div class="container">
-                        <h2 class="mainOrderText">Thick Crust Pizza</h2>
-                        <p class="priceText">+$0.50</p>
-                        <p class="subOrderText">-pepperoni</p>
-                        <p class="priceText" style="position: relative; left: 80px;">+$1.00</p>
-                        <p class="subOrderText">-bacon</p>
-                    </div>
-                        <h2 class="priceText">$9.50</h2>
-                </div>
-                <!--Second order-->
-                <div class="row">
-                        <h2 class="mainOrderText">1x breadstick</h2> 
-                        <h2 class="priceText">$3.50</h2>
-                </div>
-                <!-- price calc box-->
-                <div class="finalContainer">
-                    <div class="rowStack">
-                        <h2 class="mainOrderText">Subtotal</h2> <h2 class="priceText">$14.50</h2>
-                    </div>
-                    <div class="rowStack" style=" position: relative; top: 50px">
-                        <h2 class="mainOrderText">Taxes</h2> <h2 class="priceText">$1.23</h2>
-                    </div>
-                    <div class="rowStack" style=" position: relative; top: 100px">
-                        <h2 class="mainOrderText" >Order Total</h2> <h2 class="priceText">$15.73</h2>
-                    </div>
+                        <div class="printItems" id="getItems" style="color: white;"></div>
                 </div>
             </div>
-                <!--place order button-->
-           <!--<a href=""> for linking to other html-->
-                <div class="placeOrderBox">
-                    <form>
-                        <a href="/">
-                            <p class="paragraph-19" style="position: relative; top: 20px;">Place order</p>
-                        </a>
-                    </form> 
 
+                <!-- price calc box-->
+                <div class="container2">
+                    <div class="rowSt">
+                        <h2 class="mainOrderText">Subtotal
+                        <div class="subTotalText shiftText"></div></h2> 
+                    </div>
+                    <div class="rowSt"> 
+                        <h2 class="mainOrderText">Taxes (8%)
+                        <div class="taxText shiftText"></div></h2> 
+                    </div>
+                    <div class="rowSt">
+                        <h2 class="mainOrderText">Order Total
+                         <div class="totalText shiftText"></div></h2>
+                    </div> 
                 </div>
-           <!-- </a> --> 
-        </div>
-    </div>
+                </div>
+            </div>
 
+        <!-- right column -->
+        <div class="main">
+            <form action="/checkOut" onclick="clearInfo()" method="POST">
+            <div class="contained">
+            <h2>First Name:</h2>
+            <input type="text" placeholder="First Name" id="firstName" name="firstName" required autofocus>
+
+            <h2>Last Name:</h2>
+            <input type="text" placeholder="Last Name" id="lastName" name="lastName" required autofocus>                    
+            
+            <h2>Phone Number:</h2> 
+            <input type="tel" onkeydown="phoneNumberFormat()" id="phoneNum" name="phoneNum" placeholder="e.g. 000-000-0000" pattern="[(][0-9]{3}[)]-[0-9]{3}-[0-9]{4}" required autofocus>                    
+            
+            <h2>ASU ID:</h2>    
+            <input type="text" placeholder="ASU ID" id="asuID" name="asuID" pattern="[1]{1}[2]{1}[1]{1}[0-9]{7}"  required autofocus>                    
+            
+            <h2>ASU Email Address</h2>
+            <input type="email" placeholder="Email" id="email" name="email" required autofocus>
+            
+            <textarea class="holdInfo" id="pizza" name="pizza"></textarea>
+            <textarea class="holdInfo" id="toppings" name="toppings"></textarea>
+            <textarea class="holdInfo" id="sides" name="sides"></textarea>
+            <textarea class="holdInfo" id="drinks" name="drinks"></textarea>
+            <textarea class="holdInfo" id="cost" name="cost"></textarea>
+           </div>
+           <div class="orderButtonGrid">
+            <button class="placeOrderBox">SUBMIT ORDER</button>
+        </form>
+           </div>    
+
+        </div>
+        </div>
+
+    <script>
+        var subTotalText = document.querySelector('.subTotalText');
+        var taxText = document.querySelector('.taxText');
+        var totalText = document.querySelector('.totalText');
+        //get from previous page
+        var jsonStr = sessionStorage.getItem("key");
+
+        //get all info of the order
+        const getInfo = JSON.parse(jsonStr);
+
+        var invoiceItems = [];
+        
+        if(getInfo.pizza.thinCrust.price > 0) {invoiceItems.push(getInfo.pizza.thinCrust);}
+        if(getInfo.pizza.thickCrust.price > 0){invoiceItems.push(getInfo.pizza.thickCrust);}
+        if(getInfo.pizza.toppings.pepperoni.price > 0){invoiceItems.push(getInfo.pizza.toppings.pepperoni);}
+        if(getInfo.pizza.toppings.beef.price > 0){invoiceItems.push(getInfo.pizza.toppings.beef);}
+        if(getInfo.pizza.toppings.bacon.price > 0){invoiceItems.push(getInfo.pizza.toppings.bacon);}
+        if(getInfo.pizza.toppings.sausage.price > 0){invoiceItems.push(getInfo.pizza.toppings.sausage);}
+        if(getInfo.pizza.toppings.cheese.price > 0){invoiceItems.push(getInfo.pizza.toppings.cheese);}
+        if(getInfo.pizza.toppings.olive.price > 0){invoiceItems.push(getInfo.pizza.toppings.olive);}
+        if(getInfo.pizza.toppings.onion.price > 0){invoiceItems.push(getInfo.pizza.toppings.onion);}
+        if(getInfo.pizza.toppings.spinich.price > 0){invoiceItems.push(getInfo.pizza.toppings.spinich);}
+
+        if(getInfo.sides.breadsticks.price > 0) {invoiceItems.push(getInfo.sides.breadsticks);}
+        if(getInfo.sides.cheesesticks.price > 0) {invoiceItems.push(getInfo.sides.cheesesticks);}
+        if(getInfo.sides.cookies.price > 0) {invoiceItems.push(getInfo.sides.cookies);}
+
+        if(getInfo.drinks.fanta.price > 0) {invoiceItems.push(getInfo.drinks.fanta);}
+        if(getInfo.drinks.sprite.price > 0) {invoiceItems.push(getInfo.drinks.sprite);}
+        if(getInfo.drinks.coke.price > 0) {invoiceItems.push(getInfo.drinks.coke);}
+        if(getInfo.drinks.dietCoke.price > 0) {invoiceItems.push(getInfo.drinks.dietCoke);}
+        if(getInfo.drinks.mountainDew.price > 0){invoiceItems.push(getInfo.drinks.mountainDew);}
+
+        var pushToHTML = '<ul>';
+        
+        for(var i = 0; i < invoiceItems.length; i++) {
+            //Crusts
+            if(invoiceItems[i]['type'] == 'crust') {
+                pushToHTML += '<li>' + invoiceItems[i]['name'] + ':' + '<div class="shiftText">' + '$' + invoiceItems[i]['price'] + '</div></li>';
+            }
+            //Toppings
+            else if(invoiceItems[i]['type'] == 'topping') {
+                pushToHTML += '<li style="font-size: 2.5vh; margin-left: 10px">' + '- ' +  invoiceItems[i]['name'] + ':' + '<div class="shiftText" style="font-size:2.5vh">' + '$' + invoiceItems[i]['price'] + '</div></li>';
+            }
+            //Sides
+            else if(invoiceItems[i]['type'] == 'side') {
+                pushToHTML += '<li>' + invoiceItems[i]['name'] + ' x' + invoiceItems[i]['quantity'] + ':' + '<div class="shiftText">' + '$' + invoiceItems[i]['price'] + '</div></li>';
+
+            }
+            //Drinks
+            else {
+                pushToHTML += '<li>' + invoiceItems[i]['name'] + ' x' + invoiceItems[i]['quantity'] + ':' +  '<div class="shiftText">' + '$' + invoiceItems[i]['price'] + '</li>';
+            }
+        }
+        pushToHTML += '</ul>';
+        document.getElementById("getItems").innerHTML = pushToHTML;
+
+        //Prices and totals
+        var subTotalPrice = parseFloat(getInfo.subtotal);
+        subTotalText.innerText = "$" + subTotalPrice.toFixed(2);
+
+        var tax = 0.08 * subTotalPrice;
+        taxText.innerText = "$" + tax.toFixed(2);
+
+        var totalPrice = tax + subTotalPrice;
+        totalText.innerText = "$" + totalPrice.toFixed(2);
+        
+        var storePizza = {};
+        var storeToppings = {};
+        var storeSides = {};
+        var storeDrinks = {};
+        var storeTotal = {};
+
+        for(var i = 0; i < invoiceItems.length; i++) {
+            var itemType = invoiceItems[i]['type'];
+            var itemName = invoiceItems[i]['name'];
+            var itemPrice = invoiceItems[i]['price'];
+
+            if(itemType == 'crust') {
+                itemName = itemName + ':';
+                storePizza[itemName] = "$" + itemPrice;
+            }
+            else if(itemType == 'topping'){
+                itemName = itemName + ':';
+                storeToppings[itemName] = "$" + itemPrice;
+            }
+            else if(itemType == 'side') {
+                itemName = itemName + ' x' + invoiceItems[i]['quantity'] + ':';
+                storeSides[itemName] = "$" + itemPrice;
+            }
+            else  {
+                itemName = itemName + ' x' + invoiceItems[i]['quantity'] + ':';
+                storeDrinks[itemName] =  "$" + itemPrice;
+            }
+        }
+        if(totalPrice) {
+            storeTotal["total"] = totalText.innerText;
+        }
+        var jsonPizza = JSON.stringify(storePizza);
+        var jsonTopping = JSON.stringify(storeToppings);
+        var jsonSide = JSON.stringify(storeSides);
+        var jsonDrink = JSON.stringify(storeDrinks);
+        var jsonTotal = JSON.stringify(storeTotal);
+
+        function formatPhoneNumber(value) {
+            if (!value) {return value;}
+            const phoneNumber = value.replace(/[^\d]/g,'');
+            const phoneNumberLen = phoneNumber.length;
+            if (phoneNumberLen < 4) {return phoneNumber};
+            if (phoneNumberLen < 7) {return `(${phoneNumber.slice(0,3)})-${phoneNumber.slice(3)}`};
+            
+            return `(${phoneNumber.slice(0,3)})-${phoneNumber.slice(3,6,)}-${phoneNumber.slice(6,9)}`;
+        }
+
+        function phoneNumberFormat() {
+            const inputField = document.getElementById("phoneNum");
+            const formattedInputValue = formatPhoneNumber(inputField.value);
+            inputField.value = formattedInputValue;
+        }
+
+        function clearInfo() {
+            var getPizza = document.getElementById("pizza");
+            if(!(jsonPizza.includes("undefined") || jsonPizza.includes("{}"))){
+                getPizza.innerText = jsonPizza;
+            }
+
+            var getTopping = document.getElementById("toppings");
+            if(!(jsonTopping.includes("undefined") || jsonTopping.includes("{}"))){
+                getTopping.innerText = jsonTopping;
+            }
+
+            var getSide = document.getElementById("sides");
+            if(!(jsonSide.includes("undefined") || jsonSide.includes("{}"))){
+                getSide.innerText = jsonSide;
+            }
+
+            var getDrink = document.getElementById("drinks");
+            if(!(jsonDrink.includes("undefined") || jsonDrink.includes("{}"))){
+                getDrink.innerText = jsonDrink;
+            }
+            
+            var getCost = document.getElementById("cost");
+            if(!(jsonTotal.includes("undefined") || jsonTotal.includes("{}"))) {
+                getCost.innerText = jsonTotal;
+
+            }
+
+            // var getOrder = document.getElementById("orderInfo");
+            // getOrder.innerText = jsonOrder;
+
+            sessionStorage.clear();
+            // invoiceItems.push(subTotalPrice.toFixed(2));
+            // invoiceItems.push(tax.toFixed(2));
+            // invoiceItems.push(totalPrice.toFixed(2));
+            sessionStorage.setItem("completedOrder", invoiceItems);
+            console.log("pushed!");
+        }
+</script>
 </body>
 </html>

@@ -901,7 +901,6 @@
                             var dietCokeQuantity = parseInt(getDietCokeQ.getAttribute("value"));
                             var dewQuantity = parseInt(getDewQ.getAttribute("value"));
                             
-
                             var breadstickQuantity = parseInt(getBreadstick.getAttribute("value"));
                             var cheesestickQuantity = parseInt(getCheesestick.getAttribute("value"));
                             var cookieQuantity = parseInt(getCookie.getAttribute("value"));
@@ -912,6 +911,7 @@
 
                             var totalCost = 0;
 
+
                             if(thinPrice != 0 && thickPrice != 0) {
                                 thinPrice = 0;
                                 getThin.setAttribute("value", "0");
@@ -919,16 +919,53 @@
                             if(thinPrice == 0 && thickPrice == 0) {}
                             else {
                                 var pizzaCost = thinPrice + thickPrice + pepperoniPrice + beefPrice + baconPrice 
-                            + sausagePrice + cheesePrice + olivePrice +  onionPrice + spinichPrice;
+                                    + sausagePrice + cheesePrice + olivePrice +  onionPrice + spinichPrice;
                             }
 
                             sodaCost = (2 * (fantaQuantity + spriteQuantity + cokeQuantity + dietCokeQuantity + dewQuantity));
 
                             sidesCost = ((3.5*breadstickQuantity) + (3.5*cheesestickQuantity) + (1.5*cookieQuantity));
 
-
+                            
                             totalCost = pizzaCost + sodaCost + sidesCost;
                             priceTotal.innerText = "$" + totalCost.toFixed(2);
+
+                            const orderObj = {
+                                "subtotal": totalCost.toFixed(2),
+                                
+                                "pizza": {
+                                    "thinCrust": {"type": "crust", "name": "Thin Crust", "price": thinPrice.toFixed(2)},
+                                    "thickCrust": {"type": "crust", "name": "Thick Crust", "price": thickPrice.toFixed(2)},
+                                
+                                    "toppings": {
+                                        "pepperoni": {"type": "topping","name": "Pepperoni", "price": pepperoniPrice.toFixed(2)},
+                                        "beef": {"type": "topping", "name": "Beef", "price": beefPrice.toFixed(2)},
+                                        "bacon": {"type": "topping", "name": "Bacon", "price": baconPrice.toFixed(2)},
+                                        "sausage": {"type": "topping", "name": "Sausage", "price": sausagePrice.toFixed(2)},
+                                        "cheese": {"type": "topping", "name": "Cheese", "price": cheesePrice.toFixed(2)},
+                                        "olive": {"type": "topping", "name": "Olive", "price": olivePrice.toFixed(2)},
+                                        "onion": {"type": "topping", "name": "Onion", "price": onionPrice.toFixed(2)},
+                                        "spinich": {"type": "topping", "name": "Spinich", "price": spinichPrice.toFixed(2)}
+                                    },
+                                },
+                                
+                                "sides": {
+                                    "breadsticks": {"type": "side", "name": "Breadsticks", "quantity": breadstickQuantity, "price": (breadstickQuantity*3.5).toFixed(2)},
+                                    "cheesesticks": {"type": "side", "name": "Cheesesticks", "quantity": cheesestickQuantity, "price": (cheesestickQuantity*3.5).toFixed(2)},
+                                    "cookies": {"type": "side", "name": "Cookies", "quantity": cookieQuantity, "price": (cookieQuantity*1.5).toFixed(2)}
+                                },
+
+                                "drinks": {
+                                    "fanta": {"type": "soda", "name": "Fanta", "quantity": fantaQuantity, "price": (fantaQuantity*2).toFixed(2)},
+                                    "sprite": {"type": "soda", "name": "Sprite", "quantity": spriteQuantity, "price": (spriteQuantity*2).toFixed(2)},
+                                    "coke": {"type": "soda", "name": "Coca-Cola", "quantity": cokeQuantity, "price": (cokeQuantity*2).toFixed(2)},
+                                    "dietCoke": {"type": "soda", "name": "Diet Coca-Cola", "quantity": dietCokeQuantity, "price": (dietCokeQuantity*2).toFixed(2)},
+                                    "mountainDew": {"type": "soda", "name": "Mountain Dew", "quantity": dewQuantity, "price": (dewQuantity*2).toFixed(2)}
+                                }
+                            }
+                            const jsonOrder = JSON.stringify(orderObj);
+                            //pass to other pages
+                            sessionStorage.setItem("key", jsonOrder);
                         }
                         calculateCost();
                     </script>
@@ -941,4 +978,4 @@
         </div>
     </div>
 </body>
-</html>
+</html> 

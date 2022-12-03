@@ -5,7 +5,7 @@
         <title>Manage Orders - Sun Devil Pizza</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="cookscreen.css">
+        <link rel="stylesheet" href="manage.css">
         <style>
             .incomingOrdersText {
                 width: 33%;
@@ -37,63 +37,53 @@
                 font-size: 20px;
                 text-align: left;
                 float:right
-            }
-
-
-
-            .rectangle-2 {
-                width: 32%;
-                height: 176px;
-                color: #ffffff;
-                font-family: "Helvetica";
-                padding: 8px 8px 8px 8px;
-                box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
-                background: #1c1c21;
-                border-radius: 2px 2px 0px 0px;
-                float: left;
-            }
-            .rectangle-3 {
-                width: 31%;
-                height: 176px;
-                color: #ffffff;
-                font-family: "Helvetica";
-                padding: 8px 8px 8px 8px;
-                box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
-                background: #1c1c21;
-                border-radius: 2px 2px 0px 0px;
-                float:left;
-            }
-            .rectangle-4 {
-                width: 30%;
-                height: 176px;
-                color: #7bf5d9;
-                font-family: "Helvetica";
-                padding: 8px 8px 8px 8px;
-                box-shadow: 0px 1px 5px rgba(189, 189, 189, 0.75);
-                background: #1c1c21;
-                border-radius: 2px 2px 0px 0px;
-                float:left;
-            }
-            
+            }           
         </style>
     </head>
     <body style="background-color:#1c1c21;">
        <div class="incomingOrdersText">Incoming Orders</div>
        <div class="dateTimeOrderPlaced">Date/Time Order Placed</div>
        <div class="statusText">Order Status</div>
-       <div class="rectangle-2">Order 12579:
-        <br>1x Large Pizza
-        <br>&ensp;&ensp;&ensp;&ensp;&thinsp;-Pepperoni
-        <br>&ensp;&ensp;&ensp;&ensp;&thinsp;-Bacon
-        <br>1x Breadstick
-       </div>
-       <div class="rectangle-3">09/25/2022 05:24 PM</div>
-       <div class="rectangle-4"><label for="OrderStatus"></label>
-        <select name="OrderStatus" id="OrderStatus">
-          <option style="background-color: #1c1c21; color:#ffffff;" value="Cooking" selected>Cooking</option>
-          <option value="Picked Up">Picked Up</option>
-          <option value="Completed">Completed</option>
-          <option value="Canceled">Canceled</option>
-        </select></div>
+       <% if(orders.length > 0){ %>
+        <% orders.forEach( order => {%>
+            <div class="row">
+            <div class="rectangle-2">
+                <ul>
+                    <h1>User Info:</h1>
+                    <li><%= "Order #" + order._id%></li>
+                    <li><%= "Name: " + order.firstName + " " + order.lastName%></li>
+                    <li><%= "Phone number: " + order.phoneNum %></li>
+                    <li><%= "ASU ID: " + order.asuID %></li>
+                    <li><%= "Email: " + order.email %></li>
+                    
+                    <h1>Order:</h1>
+                    <h2>Pizza:</h2>
+                        <li><%=order.pizza.replace(':',' ').replaceAll('{','').replaceAll('}','').replaceAll('"','')%></li>
+                    <h3>Toppings:</h3>
+                        <li><%=order.toppings.replace(':',' ').replaceAll('{','').replaceAll('}','').replaceAll('"','').replaceAll(',', ', ')%></li>
+                    <h3>Sides:</h3>
+                    <li><%=order.sides.replace(':',' ').replaceAll('{','').replaceAll('}','').replaceAll('"','')%></li>
+                    <h3>Drinks:</h3>
+                    <li><%=order.drinks.replace(':',' ').replaceAll('{','').replaceAll('}','').replaceAll('"','')%></li>
+                    
+                    <h1>Total:</h1>
+                    <h2><%=order.cost.replaceAll('{','').replaceAll('}','').replaceAll('"','')%></h2>
+                </ul>
+            </div>
+            <div class="rectangle-3">
+                <p><%= order.createdAt%></p>
+            </div>
+            <div class="rectangle-4"><label for="OrderStatus"></label>
+             <select name="OrderStatus" id="OrderStatus">
+               <option style="background-color: #1c1c21; color:#ffffff;" value="Cooking" selected>Cooking</option>
+               <option value="Picked Up">Picked Up</option>
+               <option value="Completed">Completed</option>
+               <option value="Canceled">Canceled</option>
+             </select></div>
+            </div>
+        <% }) %>
+       <% } else { %>
+        <p style="color:white;">There are no orders to display...</p>
+       <% } %>
     </body>
 </html>
